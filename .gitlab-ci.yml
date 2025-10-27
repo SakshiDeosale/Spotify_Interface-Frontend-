@@ -1,0 +1,23 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - echo "Installing dependencies..."
+    - npm install
+
+test_job:
+  stage: test
+  script:
+    - echo "Running tests..."
+    - npm test
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying application..."
+  only:
+    - main   # Runs only on main branch
